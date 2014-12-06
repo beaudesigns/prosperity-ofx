@@ -1,5 +1,3 @@
-The Response shows three transactions, two credits and a debit (check):
-
 OFXHEADER:100
 DATA:OFXSGML
 VERSION:103

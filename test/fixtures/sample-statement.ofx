@@ -1,5 +1,3 @@
-The request an open-ended statement download (no start/end dates) for savings account # 098-121:
-
 OFXHEADER:100
 DATA:OFXSGML
 VERSION:102
