@@ -1,7 +1,7 @@
 {
   "name": "prosperity-ofx",
   "version": "0.0.1",
-  "description": "ofx/qif parser",
+  "description": "An ofx/qfx parser and encoder",
   "private": true,
   "main": "index.js",
   "scripts": {
