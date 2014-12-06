@@ -10,8 +10,8 @@ describe('Parser', function() {
       expect(parser.isFile('test.ofx')).to.be.true;
     });
 
-    it('returns true for .qif extension', function() {
-      expect(parser.isFile('test.qif')).to.be.true;
+    it('returns true for .qfx extension', function() {
+      expect(parser.isFile('test.qfx')).to.be.true;
     });
 
     it('returns false when no valid extension is found', function() {
@@ -28,26 +28,27 @@ describe('Parser', function() {
     });
 
     it('handles buffers', function(done) {
-      var data = new Buffer();
+      var data = new Buffer('OFXHEADER:100\rDATA:OFXSGML\rVERSION:102');
       parser.parse(data, function(error, result){
         expect(error).to.be.null;
-        expect(result).to.equal('foo');
+        expect(result).to.not.be.undefined;
         done();
       });
     });
 
     it('handles files', function(done) {
-      parser.parse({}, function(error, result){
+      var filename = path.resolve(__dirname, '../fixtures', 'sample-statement.ofx');
+      parser.parse(filename, function(error, result){
         expect(error).to.be.null;
-        expect(result).to.equal('foo');
+        expect(result).to.not.be.undefined;
         done();
       });
     });
 
     it('handles strings', function(done) {
-      parser.parse({}, function(error, result){
+      parser.parse('OFXHEADER:100\rDATA:OFXSGML\rVERSION:102', function(error, result){
         expect(error).to.be.null;
-        expect(result).to.equal('foo');
+        expect(result).to.not.be.undefined;
         done();
       });
     });
