@@ -2,7 +2,7 @@
   "name": "prosperity-ofx",
   "version": "0.0.1",
   "description": "An ofx/qfx parser and encoder",
-  "private": true,
+  "keywords": ["ofx", "qfx", "financial", "finance", "intuit"],
   "main": "index.js",
   "scripts": {
     "test": "mocha test/**/*.test.js"
