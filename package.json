@@ -1,8 +1,14 @@
 {
   "name": "prosperity-ofx",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An ofx/qfx parser and encoder",
-  "keywords": ["ofx", "qfx", "financial", "finance", "intuit"],
+  "keywords": [
+    "ofx",
+    "qfx",
+    "financial",
+    "finance",
+    "intuit"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "mocha test/**/*.test.js"
