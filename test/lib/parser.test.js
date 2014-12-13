@@ -1,9 +1,21 @@
+var fs = require('fs');
 var path = require('path');
 var chai = require('chai');
 var expect = chai.expect;
 var parser = require('../../lib/parser');
+var FIXTURE_PATH = path.join(__dirname, '../fixtures/v1.0.2');
+
+var loadFixture = function(fixtures, name, filename) {  
+  var data = fs.readFileSync(filename, 'utf-8');
+  fixtures[name] = data.toString();
+};
 
 describe('Parser', function() {
+
+  before(function(){
+    this.fixtures = {};
+    loadFixture(this.fixtures, 'sampleStatementOFX', path.resolve(FIXTURE_PATH, 'sample-statement.ofx'));
+  });
 
   describe('#isFile', function() {
     it('returns true for .ofx extension', function() {
@@ -28,7 +40,8 @@ describe('Parser', function() {
     });
 
     it('handles buffers', function(done) {
-      var data = new Buffer('OFXHEADER:100\rDATA:OFXSGML\rVERSION:102');
+      var data = new Buffer(this.fixtures.sampleStatementOFX);
+
       parser.parse(data, function(error, result){
         expect(error).to.be.null;
         expect(result).to.not.be.undefined;
@@ -37,7 +50,7 @@ describe('Parser', function() {
     });
 
     it('handles files', function(done) {
-      var filename = path.resolve(__dirname, '../fixtures', 'sample-statement.ofx');
+      var filename = path.resolve(__dirname, '../fixtures/v1.0.2', 'sample-statement.ofx');
       parser.parse(filename, function(error, result){
         expect(error).to.be.null;
         expect(result).to.not.be.undefined;
@@ -46,7 +59,7 @@ describe('Parser', function() {
     });
 
     it('handles strings', function(done) {
-      parser.parse('OFXHEADER:100\rDATA:OFXSGML\rVERSION:102', function(error, result){
+      parser.parse(this.fixtures.sampleStatementOFX, function(error, result){
         expect(error).to.be.null;
         expect(result).to.not.be.undefined;
         done();
