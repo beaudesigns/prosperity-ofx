@@ -16,6 +16,12 @@ npm install prosperity-ofx
 npm test
 ```
 
+## Usage
+
+```js
+var ofx = require('prosperity-ofx');
+```
+
 ## API
 
 #### .parse()
