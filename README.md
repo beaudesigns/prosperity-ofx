@@ -2,6 +2,8 @@
 
 > An open source OFX/QFX parser
 
+[![Build Status](https://travis-ci.org/prosperityio/prosperity-ofx.svg?branch=master)](https://travis-ci.org/prosperityio/prosperity-ofx)
+
 ## Installation
 
 ```
