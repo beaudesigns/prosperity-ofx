@@ -1,6 +1,6 @@
 {
   "name": "prosperity-ofx",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An ofx/qfx parser and encoder",
   "keywords": [
     "ofx",
